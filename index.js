@@ -1,6 +1,4 @@
-console.log('hello');
+var Plant = require('./src/plant');
 
-var Creature = require('./src/creature');
-
-var cr = new Creature();
+var cr = new Plant();
 console.log(cr);
