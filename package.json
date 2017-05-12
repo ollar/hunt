@@ -1,0 +1,16 @@
+{
+  "name": "hunt",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ларькин Олег Иванович <o.larkin@bssys.com>",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "webpack": "^2.5.1"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^3.3.0",
+    "sinon": "^2.2.0"
+  }
+}
