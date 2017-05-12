@@ -5,6 +5,7 @@
   "author": "Ларькин Олег Иванович <o.larkin@bssys.com>",
   "license": "MIT",
   "dependencies": {
+    "backbone-events-standalone": "^0.2.7",
     "moment": "^2.18.1",
     "webpack": "^2.5.1"
   },

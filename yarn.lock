@@ -127,6 +127,10 @@ aws4@^1.2.1:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
+backbone-events-standalone@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/backbone-events-standalone/-/backbone-events-standalone-0.2.7.tgz#32437d9d11c5cef041034a59c49473b86f0ce196"
+
 balanced-match@^0.4.1:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-0.4.2.tgz#cb3f3e3c732dc0f01ee70b403f302e61d7709838"
