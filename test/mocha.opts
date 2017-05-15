@@ -1,0 +1,2 @@
+--require ./test/expectInject.js
+--slow 200
