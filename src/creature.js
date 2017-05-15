@@ -14,7 +14,7 @@ function Creature() {
 
   console.log(this.constructor.name);
 
-  this.listenTo(window.events, 'cicle:turn', this.turn);
+  this.listenTo(Events, 'cicle:turn', this.turn);
 }
 
 Events.mixin(Creature.prototype);
