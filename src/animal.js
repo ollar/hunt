@@ -13,17 +13,7 @@ Animal.prototype = Object.create(Creature.prototype);
 Animal.prototype.constructor = Animal;
 
 Animal.prototype.turn = function() {
-  var args = Array.prototype.slice.call(arguments);
-  var isStarving = false;
-  var food = Field.show()[this.prefersFood];
-
-  if (Object.keys(food).length === 0) {
-    isStarving = true;
-  }
-
-  args.push(isStarving);
-
-  Creature.prototype.turn.apply(this, args);
+  Creature.prototype.turn.apply(this, arguments);
 
   if (this.lifeCicle % this.eatsFrequency === 0) {
     for (var i = 0; i < this.needFood; i++) {
@@ -40,6 +30,19 @@ Animal.prototype.eats = function(instance) {
   }
 
   return instance.die();
+}
+
+Animal.prototype.reproduce = function() {
+  var isStarving = false;
+  var food = Field.show()[this.prefersFood];
+
+  if (Object.keys(food).length === 0) {
+    isStarving = true;
+  }
+
+  if (!isStarving) {
+    Creature.prototype.reproduce.apply(this, arguments);
+  }
 }
 
 module.exports = Animal;

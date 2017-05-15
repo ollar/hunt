@@ -24,14 +24,13 @@ Events.mixin(Creature.prototype);
 
 Creature.prototype.constructor = Creature;
 
-Creature.prototype.turn = function(isStarving) {
+Creature.prototype.turn = function() {
   if (!this.alive) return;
   this.lifeCicle += 1;
 
   if (this.lifeCicle === this.lifespan) this.die();
 
-  if (!isStarving &&
-    this.lifeCicle % this.reproductionFrequency === 0) this.reproduce();
+  if (this.lifeCicle % this.reproductionFrequency === 0) this.reproduce();
 }
 
 Creature.prototype.die = function() {

@@ -9,7 +9,7 @@ function Fox() {
 
   this.lifespan = 10;
   this.childNumber = 3;
-  this.reproductionFrequency = 3;
+  this.reproductionFrequency = 2;
 }
 
 Fox.prototype = Object.create(Animal.prototype);

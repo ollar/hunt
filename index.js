@@ -19,9 +19,9 @@ Events.on('cicle:turn', function() {
   var rabbits = field['Rabbit'];
   var foxes = field['Fox'];
 
-  chart.innerHTML = 'Plants: ' + Object.keys(plants).length + '\n';
-  chart.innerHTML += 'Rabbits: ' + Object.keys(rabbits).length + '\n';
-  chart.innerHTML += 'Foxs: ' + Object.keys(foxes).length + '\n';
+  chart.innerHTML = 'Plants: ' + Object.keys(plants).length + '<br>';
+  chart.innerHTML += 'Rabbits: ' + Object.keys(rabbits).length + '<br>';
+  chart.innerHTML += 'Foxs: ' + Object.keys(foxes).length + '<br>';
 });
 
 
