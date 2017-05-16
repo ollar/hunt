@@ -25,11 +25,16 @@ var Field = (function() {
     return storage[name][key];
   }
 
+  function reset() {
+    storage = {};
+  }
+
   return {
     show: show,
     get: get,
     add: add,
     remove: remove,
+    reset: reset,
   };
 })();
 
