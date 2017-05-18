@@ -13,7 +13,6 @@ var chart = document.getElementById('chart');
 
 Events.on('cicle:turn', function() {
   var field = Field.show();
-  console.log(field);
 
   var plants = field['Plant'];
   var rabbits = field['Rabbit'];
