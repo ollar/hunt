@@ -5,3 +5,4 @@ function ko() {
 export function uuid() {
     return ko() + ko() + '-' + ko() + '-' + ko() + '-' + ko();
 }
+//# sourceMappingURL=maps/utils.js.map

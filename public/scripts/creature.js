@@ -45,3 +45,4 @@ class Creature {
 }
 
 export default Creature;
+//# sourceMappingURL=maps/creature.js.map

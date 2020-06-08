@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["plant.js"],"sourcesContent":["import Creature from './creature.js';\n\nclass Plant extends Creature {\n    lifespan = 2;\n    reproductionFrequency = 1;\n    childNumber = 10;\n}\n\nexport default Plant;"],"file":"plant.js"}
