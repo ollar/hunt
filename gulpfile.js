@@ -24,9 +24,9 @@ function libs() {
 }
 
 function js() {
-    return src(JS_SRC, { sourcemaps: true })
+    return src(JS_SRC)
         .pipe(changed(path.join(PUBLIC_DIR, 'scripts')))
-        .pipe(dest(path.join(PUBLIC_DIR, 'scripts'), { sourcemaps: 'maps' }));
+        .pipe(dest(path.join(PUBLIC_DIR, 'scripts')));
 }
 
 function defaultTask(cb) {

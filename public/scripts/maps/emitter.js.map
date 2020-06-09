@@ -1,1 +1,0 @@
-{"version":3,"names":[],"mappings":"","sources":["emitter.js"],"sourcesContent":["import EventEmitter from '/scripts/libs/events.js';\n\nconst emitter = new EventEmitter();\n\nexport default emitter;"],"file":"emitter.js"}

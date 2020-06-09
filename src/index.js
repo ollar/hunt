@@ -4,6 +4,7 @@ import emitter from './emitter.js';
 import Field from './field.js';
 import Grass from './grass.js';
 
+let worldTurn = 0;
 
 // var Rabbit = require('./src/rabbit');
 // var Fox = require('./src/fox');
@@ -13,17 +14,25 @@ import Grass from './grass.js';
 //   Events.trigger('cicle:turn');
 // }, 1000);
 
-const makeTurn = () => emitter.emit('cicle:turn');
+const makeTurn = () => {
+  emitter.emit('cicle:turn');
+  worldTurn += 1;
 
-const appTemplate = (name) => html`
+  const items = new Array(worldTurn).fill('0')
+
+  render(appTemplate({items}), document.getElementById('app'));
+}
+
+const appTemplate = ({items=[]}) => html`
   <button @click=${makeTurn}>Turn</button>
 
+  <p>world turn: ${worldTurn}</p>
   <div id="field">
-
+    ${items.map(element => html`<div class="item"></div>`)}
   </div>
 `;
 
-render(appTemplate('World'), document.getElementById('app'));
+render(appTemplate({}), document.getElementById('app'));
 
 // new Plant();
 // new Rabbit();

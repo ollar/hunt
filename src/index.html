@@ -3,6 +3,32 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #field {
+            --cell-size: 1%;
+
+            margin: 0 1vw;
+            width: 98vw;
+            height: 85vh;
+            border: 1px solid;
+            display: grid;
+            grid-gap: 1px;
+            grid-template-columns: repeat(100, var(--cell-size));
+            grid-auto-rows: var(--cell-size);
+        }
+
+        .item {
+          background: lightgray;
+        }
+
+    </style>
   </head>
   <body>
     <div id="app"></div>

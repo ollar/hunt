@@ -1,1 +1,0 @@
-{"version":3,"names":[],"mappings":"","sources":["animal.js"],"sourcesContent":["import Creature from './creature.js';\n\nclass Animal extends Creature {\n    prefersFood = '';\n    needFood = 0;\n    eatsFrequency = 0;\n\n    eat() {\n        console.log('Aminal eats');\n    }\n}\n\nexport default Animal;"],"file":"animal.js"}
