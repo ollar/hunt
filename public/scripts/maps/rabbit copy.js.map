@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["rabbit copy.js"],"sourcesContent":["import Animal from './animal.js';\n\nclass Rabbit extends Animal {\n\n}\n\nexport default Rabbit;"],"file":"rabbit copy.js"}

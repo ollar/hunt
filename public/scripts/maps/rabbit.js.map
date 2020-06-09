@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["rabbit.js"],"sourcesContent":["import Animal from './animal.js';\n\nclass Rabbit extends Animal {\n    prefersFood = 'Grass';\n    needFood = 1;\n    eatsFrequency = 1;\n\n    lifespan = 5;\n    childNumber = 3;\n    reproductionFrequency = 2;\n}\n\nexport default Rabbit;"],"file":"rabbit.js"}
