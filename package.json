@@ -5,7 +5,8 @@
   "author": "ollar <olegollar@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "events": "^3.1.0"
+    "events": "^3.1.0",
+    "lit-html": "^1.2.1"
   },
   "devDependencies": {
     "del": "^5.1.0",

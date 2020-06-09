@@ -4,43 +4,49 @@ import emitter from './emitter.js';
 
 class Creature {
     lifeCicle = 0;
-    alive = true;
+    alive = false;
     lifespan = 0;
     childNumber = 0;
     reproductionFrequency = 0;
 
     constructor() {
         this.id = uuid();
-        Field.add(this.constructor.name, this.id, this);
-        emitter.on('cicle:turn', this.turn);
+
+        console.log('creature makes some preparations');
+
+
+        // Field.add(this.constructor.name, this.id, this);
+        // emitter.on('cicle:turn', this.turn);
     }
 
     turn = () => {
-        if (!this.alive) return;
-        this.lifeCicle += 1;
+        // if (!this.alive) return;
+        // this.lifeCicle += 1;
 
-        if (this.lifeCicle === this.lifespan)
-            return this.die();
+        // if (this.lifeCicle === this.lifespan)
+        //     return this.die();
 
-        if (this.lifeCicle % this.reproductionFrequency === 0)
-            this.reproduce();
+        // if (this.lifeCicle % this.reproductionFrequency === 0)
+        //     this.reproduce();
     }
 
     die() {
-        this.alive = false;
-        console.log('die');
+        console.log('creature dies');
 
-        emitter.removeListener('cicle:turn', this.turn);
+        // this.alive = false;
+        // console.log('die');
 
-        Field.remove(this.constructor.name, this.id);
+        // emitter.removeListener('cicle:turn', this.turn);
+
+        // Field.remove(this.constructor.name, this.id);
     }
 
     reproduce() {
-        console.log('reproduce');
+        console.log('creature reproduces');
 
-        for (var i = 0; i < this.childNumber; i++) {
-          new this.constructor();
-        }
+        // for (var i = 0; i < this.childNumber; i++) {
+        //   new this.constructor();
+        // }
     }
 }
 

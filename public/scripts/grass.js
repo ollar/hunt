@@ -7,4 +7,4 @@ class Plant extends Creature {
 }
 
 export default Plant;
-//# sourceMappingURL=maps/plant.js.map
+//# sourceMappingURL=maps/grass.js.map
