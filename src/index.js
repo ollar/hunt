@@ -15,25 +15,40 @@ let worldTurn = 0;
 // }, 1000);
 
 const makeTurn = () => {
-  emitter.emit('cicle:turn');
+  // emitter.emit('cicle:turn');
+  window.postMessage('circle:turn');
+
   worldTurn += 1;
 
-  const items = new Array(worldTurn).fill('0')
-
-  render(appTemplate({items}), document.getElementById('app'));
+  return renderApp();
 }
 
-const appTemplate = ({items=[]}) => html`
+const appTemplate = ({grass=[]}) => html`
   <button @click=${makeTurn}>Turn</button>
 
   <p>world turn: ${worldTurn}</p>
+
+  Grass: ${grass.size}
   <div id="field">
-    ${items.map(element => html`<div class="item"></div>`)}
+    ${renderItems(grass)}
   </div>
 `;
 
-render(appTemplate({}), document.getElementById('app'));
+const renderItems = (set) => {
+  const items = [];
 
-// new Plant();
+  set.forEach(_i => items.push(_i));
+
+  return items.map(item => html`<div class="item ${item.name}">${item.lifeCicle}</div>`);
+}
+
+const renderApp = () => {
+  const grass = Field.get('Grass');
+  render(appTemplate({grass}), document.getElementById('app'));
+}
+
+new Grass();
 // new Rabbit();
 // new Fox();
+
+renderApp();

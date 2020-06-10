@@ -1,9 +1,9 @@
 import Creature from './creature.js';
 
-class Plant extends Creature {
+class Grass extends Creature {
     lifespan = 2;
     reproductionFrequency = 1;
-    childNumber = 10;
+    childNumber = 2;
 }
 
-export default Plant;
+export default Grass;

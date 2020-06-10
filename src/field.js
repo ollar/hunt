@@ -4,29 +4,36 @@ function show() {
     return storage;
 }
 
-function add(name, key, instance) {
-    if (!storage[name]) storage[name] = {};
+function add(instance) {
+    const name = instance.constructor.name;
+    if (!storage[name]) storage[name] = new Set();
 
-    storage[name][key] = instance;
+    storage[name].add(instance);
+
+    return () => {
+        storage[name].delete(instance);
+    }
 }
 
-function remove(name, key) {
+function remove(instance) {
+    const name = instance.constructor.name;
+
     if (typeof storage[name] === 'undefined') throw new Error('No such creature');
 
-    storage[name][key] = null;
+    storage[name].delete(instance);
 }
 
 function get(name) {
     if (typeof storage[name] === 'undefined') throw new Error('No such creature');
 
-    var key = Object.keys(storage[name]).pop();
-
-    return storage[name][key];
+    return storage[name];
 }
 
 function reset() {
     storage = {};
 }
+
+window.field = storage;
 
 export default {
     show,

@@ -9,44 +9,55 @@ class Creature {
     childNumber = 0;
     reproductionFrequency = 0;
 
+    get name() {
+        return this.constructor.name;
+    }
+
     constructor() {
         this.id = uuid();
 
-        console.log('creature makes some preparations');
+        console.log(`${this.name} constructor`);
 
+        this.init();
+    }
 
-        // Field.add(this.constructor.name, this.id, this);
-        // emitter.on('cicle:turn', this.turn);
+    _handleMessage = e => {
+        if (e.data === 'circle:turn') return this.turn();
+    }
+
+    init() {
+        this.removeBody = Field.add(this);
+        window.addEventListener('message', this._handleMessage, {passive : true})
+        this.alive = true;
     }
 
     turn = () => {
-        // if (!this.alive) return;
-        // this.lifeCicle += 1;
+        if (!this.alive) return;
+        this.lifeCicle += 1;
 
-        // if (this.lifeCicle === this.lifespan)
-        //     return this.die();
+        if (this.lifeCicle === this.lifespan)
+            return this.die();
 
-        // if (this.lifeCicle % this.reproductionFrequency === 0)
-        //     this.reproduce();
+        if (this.lifeCicle % this.reproductionFrequency === 0)
+            this.reproduce();
     }
 
     die() {
-        console.log('creature dies');
+        console.log(`${this.name} dies`);
 
-        // this.alive = false;
-        // console.log('die');
+        this.alive = false;
 
-        // emitter.removeListener('cicle:turn', this.turn);
+        window.removeListener('message', this._handleMessage)
 
-        // Field.remove(this.constructor.name, this.id);
+        this.removeBody();
     }
 
     reproduce() {
-        console.log('creature reproduces');
+        console.log(`${this.name} reproduces`);
 
-        // for (var i = 0; i < this.childNumber; i++) {
-        //   new this.constructor();
-        // }
+        for (var i = 0; i < this.childNumber; i++) {
+          new this.constructor();
+        }
     }
 }
 
