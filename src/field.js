@@ -33,6 +33,12 @@ function reset() {
     storage = {};
 }
 
+function turn() {
+    Object.keys(storage).forEach(key => {
+        storage[key].forEach(item => item.turn());
+    });
+}
+
 window.field = storage;
 
 export default {
@@ -41,4 +47,5 @@ export default {
     add,
     remove,
     reset,
+    turn,
 }

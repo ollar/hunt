@@ -1,6 +1,7 @@
 import { uuid } from './utils.js';
 import Field from './field.js';
-import emitter from './emitter.js';
+
+import runloop from './runloop.js';
 
 class Creature {
     lifeCicle = 0;
@@ -21,38 +22,33 @@ class Creature {
         this.init();
     }
 
-    _handleMessage = e => {
-        if (e.data === 'circle:turn') return this.turn();
-    }
-
     init() {
         this.removeBody = Field.add(this);
-        window.addEventListener('message', this._handleMessage, {passive : true})
         this.alive = true;
     }
 
-    turn = () => {
+    turn() {
         if (!this.alive) return;
-        this.lifeCicle += 1;
+        runloop.deferOnce('grow', () => {
+            this.lifeCicle += 1;
+        });
 
         if (this.lifeCicle === this.lifespan)
-            return this.die();
+            return runloop.deferOnce('die', this.die)
+            // return this.die();
 
         if (this.lifeCicle % this.reproductionFrequency === 0)
-            this.reproduce();
+            runloop.deferOnce('reproduce', this.reproduce);
+            // this.reproduce();
     }
 
-    die() {
+    die = () => {
         console.log(`${this.name} dies`);
-
         this.alive = false;
-
-        window.removeListener('message', this._handleMessage)
-
         this.removeBody();
     }
 
-    reproduce() {
+    reproduce = () => {
         console.log(`${this.name} reproduces`);
 
         for (var i = 0; i < this.childNumber; i++) {

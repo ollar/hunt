@@ -1,12 +1,12 @@
 import {html, render} from '/scripts/libs/lit-html.js';
 
-import emitter from './emitter.js';
 import Field from './field.js';
 import Grass from './grass.js';
+import Rabbit from './rabbit.js';
+import runloop from './runloop.js';
 
 let worldTurn = 0;
 
-// var Rabbit = require('./src/rabbit');
 // var Fox = require('./src/fox');
 
 
@@ -15,22 +15,24 @@ let worldTurn = 0;
 // }, 1000);
 
 const makeTurn = () => {
-  // emitter.emit('cicle:turn');
-  window.postMessage('circle:turn');
-
-  worldTurn += 1;
-
-  return renderApp();
+  runloop.run(() => {
+    worldTurn += 1;
+    Field.turn();
+  });
+  renderApp();
 }
 
-const appTemplate = ({grass=[]}) => html`
+const appTemplate = ({grass=[], rabbit=[]}) => html`
   <button @click=${makeTurn}>Turn</button>
 
   <p>world turn: ${worldTurn}</p>
 
-  Grass: ${grass.size}
+  <p>Grass: ${grass.size}</p>
+  <p>Rabbit: ${rabbit.size}</p>
+
   <div id="field">
     ${renderItems(grass)}
+    ${renderItems(rabbit)}
   </div>
 `;
 
@@ -43,12 +45,16 @@ const renderItems = (set) => {
 }
 
 const renderApp = () => {
+  console.log('render');
+
   const grass = Field.get('Grass');
-  render(appTemplate({grass}), document.getElementById('app'));
+  const rabbit = Field.get('Rabbit');
+
+  render(appTemplate({grass, rabbit}), document.getElementById('app'));
 }
 
 new Grass();
-// new Rabbit();
+new Rabbit();
 // new Fox();
 
 renderApp();
