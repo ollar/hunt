@@ -6,7 +6,7 @@ class Fox extends Animal {
     eatsFrequency = 1;
 
     lifespan = 10;
-    childNumber = 3;
+    childNumber = 5;
     reproductionFrequency = 2;
 }
 

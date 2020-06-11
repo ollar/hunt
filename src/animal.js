@@ -12,6 +12,7 @@ class Animal extends Creature {
 
         if (this.lifeCicle % this.eatsFrequency === 0) {
             runloop.deferOnce('eat', () => {
+                if (!this.alive) return;
                 for (var i = 0; i < this.needFood; i++) {
                     let instancesSet = Field.get(this.prefersFood);
                     if (!instancesSet || instancesSet.size === 0) return this.eat();

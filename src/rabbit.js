@@ -2,12 +2,12 @@ import Animal from './animal.js';
 
 class Rabbit extends Animal {
     prefersFood = 'Grass';
-    needFood = 1;
+    needFood = 3;
     eatsFrequency = 1;
 
     lifespan = 5;
-    childNumber = 2;
-    reproductionFrequency = 2;
+    childNumber = 8;
+    reproductionFrequency = 1;
 }
 
 export default Rabbit;

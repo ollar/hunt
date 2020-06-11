@@ -28,27 +28,31 @@ class Creature {
     }
 
     turn() {
-        if (!this.alive) return;
         runloop.deferOnce('grow', () => {
+            if (!this.alive) return;
             this.lifeCicle += 1;
         });
 
         if (this.lifeCicle === this.lifespan)
-            return runloop.deferOnce('die', this.die)
-            // return this.die();
+            return runloop.deferOnce('die', () => {
+                if (!this.alive) return;
+                this.die();
+            })
 
         if (this.lifeCicle % this.reproductionFrequency === 0)
-            runloop.deferOnce('reproduce', this.reproduce);
-            // this.reproduce();
+            runloop.deferOnce('reproduce', () => {
+                this.reproduce();
+            });
     }
 
-    die = () => {
+    die() {
         // console.log(`${this.name} dies`);
         this.alive = false;
         this.removeBody();
     }
 
-    reproduce = () => {
+    reproduce() {
+        if (!this.alive) return;
         // console.log(`${this.name} reproduces`);
 
         for (var i = 0; i < this.childNumber; i++) {

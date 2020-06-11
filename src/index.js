@@ -25,9 +25,9 @@ const appTemplate = ({grass=[], rabbit=[], fox=[]}) => html`
 
   <p>world turn: ${worldTurn}</p>
 
-  <p>Grass: ${grass.size}</p>
-  <p>Rabbits: ${rabbit.size}</p>
-  <p>Foxes: ${fox.size}</p>
+  <div>Grass: ${grass.size}</div>
+  <div>Rabbits: ${rabbit.size}</div>
+  <div>Foxes: ${fox.size}</div>
 
   <div id="field">
     ${renderItems(grass)}
@@ -54,8 +54,16 @@ const renderApp = () => {
   render(appTemplate({grass, rabbit, fox}), document.getElementById('app'));
 }
 
-new Grass();
-new Rabbit();
-new Fox();
+for (let index = 0; index < 50; index++) {
+  new Grass();
+}
+
+for (let index = 0; index < 10; index++) {
+  new Rabbit();
+}
+
+for (let index = 0; index < 2; index++) {
+  new Fox();
+}
 
 renderApp();
