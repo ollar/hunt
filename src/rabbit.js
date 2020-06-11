@@ -6,7 +6,7 @@ class Rabbit extends Animal {
     eatsFrequency = 1;
 
     lifespan = 5;
-    childNumber = 3;
+    childNumber = 2;
     reproductionFrequency = 2;
 }
 

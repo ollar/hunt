@@ -17,7 +17,7 @@ class Creature {
     constructor() {
         this.id = uuid();
 
-        console.log(`${this.name} constructor`);
+        // console.log(`${this.name} constructor`);
 
         this.init();
     }
@@ -43,13 +43,13 @@ class Creature {
     }
 
     die = () => {
-        console.log(`${this.name} dies`);
+        // console.log(`${this.name} dies`);
         this.alive = false;
         this.removeBody();
     }
 
     reproduce = () => {
-        console.log(`${this.name} reproduces`);
+        // console.log(`${this.name} reproduces`);
 
         for (var i = 0; i < this.childNumber; i++) {
           new this.constructor();

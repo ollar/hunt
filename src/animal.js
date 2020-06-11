@@ -26,7 +26,7 @@ class Animal extends Creature {
 
     eat(instance) {
         if (!instance) {
-            console.log('dead from starve');
+            console.log(`${this.name} dead from starve`);
             return this.die();
         }
 
